@@ -61,6 +61,11 @@
 			$(".q10Choice").on("click", function() {
 				$(".q10Choice").css("background","");
 				$(this).css("background","rgb(255, 255, 0)");
+				
+				//Add border for visual improvement
+				$(".q10Choice").css("border-style","");
+				$(this).css("border-style", "solid");
+				$(this).css("border-color", "red");
 			});
 
 			//Functions
