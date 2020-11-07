@@ -117,6 +117,14 @@
 					wrongAnswer(5);
 				}
 
+				if(score > 80) {
+					$("#totalScore").attr("class", "text-success");
+					$("#successMessage").html("Nice job, you scored over 80!")
+					$("#successMessage").attr("class", "text-success");
+				}
+				else {
+					$("#totalScore").attr("class", "text-danger");
+				}
 				$("#totalScore").html(`Total Score: ${score}`);
 				$("#totalAttempts").html(`Total Attempts: ${++attempts}`);
 				localStorage.setItem("total_attempts", attempts);
@@ -174,7 +182,7 @@
 	<button class="btn btn-outline-success">Submit Quiz</button>
 	<br>
 	<h2 id="totalScore" class="text-info"></h2>
-
+	<h2 id="successMessage"></h2>
 	<h3 id="totalAttempts"></h3>
 </body>
 </html>
