@@ -25,8 +25,9 @@
 			$("button").on("click", gradeQuiz);
 
 			displayQ4Choices();
+			displayQ9Choices();
 
-                //Functions
+            //Functions
             function displayQ4Choices() {
 
                 let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
@@ -34,6 +35,17 @@
 
                 for (let i = 0; i < q4ChoicesArray.length; i++) {
                 	$("#q4Choices").append(` <input type="radio" name="q4" id="${q4ChoicesArray[i]}" value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`);
+                }
+
+             }
+
+             function displayQ9Choices() {
+
+                let q9ChoicesArray = ["Mcdonalds", "Jack in the box", "In & Out", "Burger King"];
+                q4ChoicesArray = _.shuffle(q9ChoicesArray);
+
+                for (let i = 0; i < q9ChoicesArray.length; i++) {
+                	$("#q9Choices").append(` <input type="radio" name="q4" id="${q9ChoicesArray[i]}" value="${q9ChoicesArray[i]}"> <label for="${q9ChoicesArray[i]}"> ${q9ChoicesArray[i]}</label>`);
                 }
 
              }
@@ -146,6 +158,14 @@
 					wrongAnswer(8);
 				}
 
+				//Question 9
+                if(q4Response == "In & Out") {
+                    rightAnswer(9);
+                }
+                else {
+                    wrongAnswer(9);
+                }
+
 
 				if(score < 80) {
 					$("#totalScore").attr("class", "text-danger");
@@ -233,6 +253,11 @@
 	<br><br>
 	<div id="q8Feedback"></div>
 	<br>
+
+	<h3><span id="markImg9"></span>What is the best fast food? (Hint, double double)</h3>
+	<div id="q9Choices"></div>
+	<div id="q9Feedback"></div>
+	<br></br>
 
 
 	<h3 id="validationFdbk" class="bg-danger text-white"></h3>
