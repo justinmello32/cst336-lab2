@@ -105,7 +105,7 @@
 				let q4Response = $("input[name=q4]:checked").val();
 				let q6Response = $("#q6").val().toLowerCase();
 				let q7Response = $("#q7").val();
-				let q9Response = $("input[name=q]:checked").val();
+				let q9Response = $("input[name=q9]:checked").val();
 
 				//Question 1
 				if(q1Response == "sacramento") {
