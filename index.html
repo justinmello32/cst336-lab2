@@ -4,7 +4,7 @@
 	<title>US Quiz</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script> 
 	<script>
 		$(document).ready(function(){
 
@@ -19,6 +19,7 @@
 
 			//Global Variables
 			var score = 0;
+			var attempts = localStorage.getItem("total_attempts");
 
 			//Event Listeners
 			$("button").on("click", gradeQuiz);
@@ -29,6 +30,7 @@
             function displayQ4Choices() {
 
                 let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
+                q4ChoicesArray = _.shuffle(q4ChoicesArray);
 
                 for (let i = 0; i < q4ChoicesArray.length; i++) {
                 	$("#q4Choices").append(` <input type="radio" name="q4" id="${q4ChoicesArray[i]}" value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`);
@@ -116,6 +118,8 @@
 				}
 
 				$("#totalScore").html(`Total Score: ${score}`);
+				$("#totalAttempts").html(`Total Attempts: ${++attempts}`);
+				localStorage.setItem("total_attempts", attempts);
 			}
 		})
 	</script>
@@ -171,5 +175,6 @@
 	<br>
 	<h2 id="totalScore" class="text-info"></h2>
 
+	<h3 id="totalAttempts"></h3>
 </body>
 </html>
