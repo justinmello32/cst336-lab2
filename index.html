@@ -42,10 +42,10 @@
              function displayQ9Choices() {
 
                 let q9ChoicesArray = ["Mcdonalds", "Jack in the box", "In & Out", "Burger King"];
-                q4ChoicesArray = _.shuffle(q9ChoicesArray);
+                q9ChoicesArray = _.shuffle(q9ChoicesArray);
 
                 for (let i = 0; i < q9ChoicesArray.length; i++) {
-                	$("#q9Choices").append(` <input type="radio" name="q4" id="${q9ChoicesArray[i]}" value="${q9ChoicesArray[i]}"> <label for="${q9ChoicesArray[i]}"> ${q9ChoicesArray[i]}</label>`);
+                	$("#q9Choices").append(` <input type="radio" name="q9" id="${q9ChoicesArray[i]}" value="${q9ChoicesArray[i]}"> <label for="${q9ChoicesArray[i]}"> ${q9ChoicesArray[i]}</label>`);
                 }
 
              }
@@ -54,6 +54,12 @@
 			//Question 5 Images
 			$(".q5Choice").on("click", function() {
 				$(".q5Choice").css("background","");
+				$(this).css("background","rgb(255, 255, 0)");
+			});
+
+			//Question 10 Images
+			$(".q10Choice").on("click", function() {
+				$(".q10Choice").css("background","");
 				$(this).css("background","rgb(255, 255, 0)");
 			});
 
@@ -99,7 +105,7 @@
 				let q4Response = $("input[name=q4]:checked").val();
 				let q6Response = $("#q6").val().toLowerCase();
 				let q7Response = $("#q7").val();
-				let q8Response = $("input[name=q8]:checked").val();
+				let q9Response = $("input[name=q]:checked").val();
 
 				//Question 1
 				if(q1Response == "sacramento") {
@@ -159,12 +165,19 @@
 				}
 
 				//Question 9
-                if(q4Response == "In & Out") {
+                if(q9Response == "In & Out") {
                     rightAnswer(9);
                 }
                 else {
                     wrongAnswer(9);
                 }
+
+                //Question 10
+				if($("#flag1").css("background-color") == "rgb(255, 255, 0)") {
+					rightAnswer(10);
+				}else {
+					wrongAnswer(10);
+				}
 
 
 				if(score < 80) {
@@ -257,6 +270,13 @@
 	<h3><span id="markImg9"></span>What is the best fast food? (Hint, double double)</h3>
 	<div id="q9Choices"></div>
 	<div id="q9Feedback"></div>
+	<br></br>
+
+	<h3><span id="markImg10"></span>What is the flag of California? (This one's tough)</h3>
+	<img src="img/cal.png" alt="Flag 1" class="q10Choice" id="flag1">
+	<img src="img/nm.png" alt="Flag 2" class="q10Choice" id="flag2">
+	<img src="img/wash.png" alt="Flag 3" class="q10Choice" id="flag3">
+	<div id="q10Feedback"></div>
 	<br></br>
 
 
