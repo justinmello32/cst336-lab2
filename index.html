@@ -51,6 +51,10 @@
 				if ($("#q1").val() =="") {
 					isValid = false;
 					$("#validationFdbk").html("Question 1 was not answered");
+				}				
+				if ($("#q6").val() =="") {
+					isValid = false;
+					$("#validationFdbk").html("Question 6 was not answered");
 				}
 				return isValid;
 			}
@@ -81,6 +85,7 @@
 				let q1Response = $("#q1").val().toLowerCase();
 				let q2Response = $("#q2").val();
 				let q4Response = $("input[name=q4]:checked").val();
+				let q6Response = $("#q6").val().toLowerCase();
 
 				//Question 1
 				if(q1Response == "sacramento") {
@@ -115,6 +120,13 @@
 					rightAnswer(5);
 				}else {
 					wrongAnswer(5);
+				}
+
+				//Question 6
+				if(q6Response == "los angeles") {
+					rightAnswer(6);
+				}else {
+					wrongAnswer(6)
 				}
 
 				if(score < 80) {
@@ -176,6 +188,12 @@
 	<img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3">
 	<div id="q5Feedback"></div>
 	<br></br>
+
+	<h3><span id="markImg6"></span>What is the largest city in California?</h3>
+	<input type="text" id="q6">
+	<br><br>
+	<div id="q6Feedback"></div>
+	<br>
 
 
 	<h3 id="validationFdbk" class="bg-danger text-white"></h3>
