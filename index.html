@@ -117,13 +117,13 @@
 					wrongAnswer(5);
 				}
 
-				if(score > 80) {
+				if(score < 80) {
+					$("#totalScore").attr("class", "text-danger");
+				}
+				else {
 					$("#totalScore").attr("class", "text-success");
 					$("#successMessage").html("Nice job, you scored over 80!")
 					$("#successMessage").attr("class", "text-success");
-				}
-				else {
-					$("#totalScore").attr("class", "text-danger");
 				}
 				$("#totalScore").html(`Total Score: ${score}`);
 				$("#totalAttempts").html(`Total Attempts: ${++attempts}`);
