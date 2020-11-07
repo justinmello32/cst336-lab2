@@ -87,6 +87,7 @@
 				let q4Response = $("input[name=q4]:checked").val();
 				let q6Response = $("#q6").val().toLowerCase();
 				let q7Response = $("#q7").val();
+				let q8Response = $("input[name=q8]:checked").val();
 
 				//Question 1
 				if(q1Response == "sacramento") {
@@ -129,12 +130,22 @@
 				}else {
 					wrongAnswer(6)
 				}
+
 				//Question 7
 				if(q7Response == "3") {
 					rightAnswer(7);
 				}else {
 					wrongAnswer(7)
 				}
+
+				//Question 8
+				if($("#SantaRosa").is(":checked") && $("#FortBragg").is(":checked") && !$("#YadaVille").is(":checked") && !$("#MoosePark").is(":checked")){
+					rightAnswer(8);
+				}
+				else {
+					wrongAnswer(8);
+				}
+
 
 				if(score < 80) {
 					$("#totalScore").attr("class", "text-danger");
@@ -212,6 +223,15 @@
 	</select>
 	<br><br>
 	<div id="q7Feedback"></div>
+	<br>
+
+	<h3><span id="markImg8"></span>Which of these are real cities in California?</h3>
+	<input type="checkbox" id="SantaRosa"> <label for="SantaRosa">Santa Rosa </label>
+	<input type="checkbox" id="FortBragg"> <label for="FortBragg">Fort Bragg </label>
+	<input type="checkbox" id="YadaVille"> <label for="YadaVille">YadaVille </label>
+	<input type="checkbox" id="MoosePark"> <label for="MoosePark">MoosePark </label>
+	<br><br>
+	<div id="q8Feedback"></div>
 	<br>
 
 
