@@ -31,10 +31,11 @@
                 let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
 
                 for (let i = 0; i < q4ChoicesArray.length; i++) {
-                   $("#q4Choices").append(`<input type="radio" name="q4" id="${q4ChoicesArray[i]}" 
-                   value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`);
+                	$("#q4Choices").append(` <input type="radio" name="q4" id="${q4ChoicesArray[i]}" value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`);
                 }
-            }
+
+             }
+
 
 			//Question 5 Images
 			$(".q5Choice").on("click", function() {
@@ -148,13 +149,13 @@
 	<input type="checkbox" id="Jefferson"> <label for="Jefferson">T. Jefferson </label>
 	<input type="checkbox" id="Roosevelt"> <label for="Roosevelt">T. Roosevelt  </label>
 	<br><br>
-	<div id="q3Feedback">
+	<div id="q3Feedback"></div>
 	<br>
 
 	<h3><span id="markImg4"></span>What is the smallest US State?</h3>
-    <div id="q4Choices"></div>
-    <div id="q4Feedback"></div>
-	<br><br>
+	<div id="q4Choices"></div>
+	<div id="q4Feedback"></div>
+	<br></br>
 
 
 	<h3><span id="markImg5"></span>What image is in the Great Seal of the State of California?</h3>
